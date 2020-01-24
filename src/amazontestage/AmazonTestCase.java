@@ -49,26 +49,28 @@ public class AmazonTestCase {
         OpenBrowser(AmazonUrl);
         Thread.sleep(800);
         JavascriptExecutor Scroll =  (JavascriptExecutor) driver;
-        //driver.navigate(Amazon_Payment_Products);
-       Scroll.executeScript("window.scrollBy(0,4800)");
-//        driver.findElement(By.cssSelector(Reward));
-//        Thread.sleep(1000);
-//        driver.findElement(By.cssSelector("#navFooter > div.navFooterVerticalColumn.navAccessibility > div > div:nth-child(5) > ul > li.nav_first > a")).click();
-//      Thread.sleep(800);
-//        driver.navigate().back();
-//        Scroll.executeScript("window.scrollBy(0,4800)");
-//        driver.findElement(By.xpath(StoreCard)).click();
-//        Thread.sleep(800);
-//        emailBox();
-//        Thread.sleep(800);
-//        keepLogged();
-//        Password();
-//        Thread.sleep(800);
-//        SignIn();
-          Business();
-          Apply();
-          Corporate();
-       // driver.close();
+        Scroll.executeScript("window.scrollBy(0,4800)");
+        driver.findElement(By.cssSelector(Reward));
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("#navFooter > div.navFooterVerticalColumn.navAccessibility > div > div:nth-child(5) > ul > li.nav_first > a")).click();
+        Thread.sleep(1000);
+        driver.navigate().back();
+        Scroll.executeScript("window.scrollBy(0,4800)");
+        driver.findElement(By.xpath(StoreCard)).click();
+        Thread.sleep(1000);
+        emailBox();
+        Thread.sleep(1000);
+        keepLogged();
+        Thread.sleep(1000);
+        Password();
+        Thread.sleep(800);
+        SignIn();
+        Business();
+        Apply();
+        Corporate();
+        Point();
+        SearchBox();
+        driver.close();
     }
     public static void OpenBrowser (String url) {
         System.setProperty("webdriver.chrome.driver" , "BrowserDriver/chromedriver.exe");
@@ -78,9 +80,9 @@ public class AmazonTestCase {
 
     }
     public static void Back () throws InterruptedException {
-        Thread.sleep(800);
+        Thread.sleep(1000);
         driver.navigate().back();
-        Thread.sleep(800);
+        Thread.sleep(1000);
         driver.navigate().back();
     }
     public static void emailBox ()  {
@@ -98,11 +100,11 @@ public class AmazonTestCase {
     }
     public static void Business() throws InterruptedException {
         driver.findElement(By.xpath(business)).click();
-        Thread.sleep(800);
+        Thread.sleep(1000);
     }
     public static void Apply() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"applyBoxLink-announce\"]")).click();
-        Thread.sleep(800);
+        Thread.sleep(1000);
         emailBox();
         Password();
         SignIn();
@@ -112,9 +114,17 @@ public class AmazonTestCase {
     public static void Corporate() throws InterruptedException {
         driver.findElement(By.cssSelector(corporate)).click();
         driver.findElement(By.xpath("//*[@id=\"a-autoid-0-announce\"]")).click();
-        Thread.sleep(500);
+        Thread.sleep(1000);
         driver.navigate().back();
 
 
+    }
+    public static void Point ()  {
+        driver.findElement(By.xpath("//*[@id=\"navFooter\"]/div[1]/div/div[5]/ul/li[5]/a")).click();
+    }
+    public static void SearchBox () throws InterruptedException {
+        driver.findElement(By.xpath("//*[@id=\"twotabsearchtextbox\"]")).sendKeys("Amazon Credit Card");
+        Thread.sleep(1000);
+        driver.navigate().back();
     }
 }
